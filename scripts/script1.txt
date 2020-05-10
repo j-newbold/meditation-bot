@@ -1,0 +1,7 @@
+{SPEED:1000:50}
+the lazy dog.
+jumps over
+the lazy dog.
+jumps over
+the lazy dog.
+jumps over
