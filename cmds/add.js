@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
     const dbClient = new Client({
         connectionString: process.env.DATABASE_URL,
-        ssl: false, // This is not ideal
+        // ssl: false, // I am not sure if this is ideal
     });
     var mins = Number(args[0]);
     if (Number.isInteger(mins)) {
