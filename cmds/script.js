@@ -3,10 +3,12 @@ var baseDelay = 2300;
 const discord = require('discord.js');
 const fs = require('fs');
 module.exports.run = async(bot, message, args) => {
+    console.log('running script command');
     var convoChannel = message.channel;
     let filter = () => true;
     var text = fs.readFileSync('./scripts/script1.txt','utf8');
     text = text.split('\r\n');
+    console.log(text);
     let exitHandler = new discord.MessageCollector(convoChannel, filter);
     let ret = false;
     exitHandler.on('collect', (message, col) => {
