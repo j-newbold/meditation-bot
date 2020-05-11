@@ -1,4 +1,5 @@
 module.exports.run = async (bot, message, args) => {
+    console.log('running add command');
     const { Client } = require('pg');
 
     const dbClient = new Client({

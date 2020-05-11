@@ -7,7 +7,7 @@ module.exports.run = async(bot, message, args) => {
     var convoChannel = message.channel;
     let filter = () => true;
     var text = fs.readFileSync('./scripts/script1.txt','utf8');
-    text = text.split('\r\n');
+    text = text.split('\n');
     console.log(text);
     let exitHandler = new discord.MessageCollector(convoChannel, filter);
     let ret = false;
