@@ -8,7 +8,6 @@ module.exports.run = async(bot, message, args) => {
     let filter = () => true;
     var text = fs.readFileSync('./scripts/script1.txt','utf8');
     text = text.split('\n');
-    console.log(text);
     let exitHandler = new discord.MessageCollector(convoChannel, filter);
     let ret = false;
     exitHandler.on('collect', (message, col) => {
@@ -27,7 +26,6 @@ module.exports.run = async(bot, message, args) => {
     let totalDelay = 0;
     while (!ret) {
         if (text[i].length >= 2 && text[i].slice(0,1)+text[i].slice(-1) == '{}') {
-            console.log('found a command');
             x = text[i].slice(1,-1).split(':');
             txtCmd = x[0];
             txtArgs = x.slice(1);
@@ -41,11 +39,9 @@ module.exports.run = async(bot, message, args) => {
             x = await lineWait(10);
         } else {
             x = await convoChannel.send(text[i]);
-            console.log('wait time: '+baseDelay+wordDelay*text[i].split(' ').length);
             totalDelay = baseDelay + wordDelay*text[i].split(' ').length;
             x = await lineWait(totalDelay);
         }
-        console.log(i);
         i+=1;
         if (i >= text.length) {
             return;
